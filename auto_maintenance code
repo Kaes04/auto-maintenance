@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# ====== KONFIGURACJA ======
+BACKUP_DIR="$HOME/backup"
+LOG_DIR="$HOME/logs"
+SOURCE_DIR="$HOME/Documents"
+
+# Tworzenie katalogów jeśli nie istnieją
+mkdir -p "$BACKUP_DIR"
+mkdir -p "$LOG_DIR"
+
+# ====== FUNKCJE ======
+update_system() {
+    echo "=== Aktualizacja systemu ==="
+    sudo apt update && sudo apt upgrade -y
+    sudo apt autoremove -y
+    sudo apt autoclean
+}
+
+backup_folder() {
+    echo "=== Tworzenie kopii zapasowej ==="
+    BACKUP_FILE="$BACKUP_DIR/backup_$(date +%Y%m%d_%H%M%S).tar.gz"
+    tar -czvf "$BACKUP_FILE" "$SOURCE_DIR"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Backup saved to $BACKUP_FILE" >> "$LOG_DIR/activity.log"
+}
+
+# ====== WYKONANIE ======
+update_system
+backup_folder
+
+echo "Gotowe!"
