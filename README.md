@@ -1,12 +1,58 @@
-# 🛠️ Auto Maintenance Script
-
-Prosty skrypt w **Bash**, który automatyzuje podstawowe czynności administracyjne w systemie **Ubuntu**:
-
-- Aktualizuje pakiety systemowe
-- Usuwa zbędne pakiety i czyści pamięć podręczną
-- Tworzy kopię zapasową wybranego katalogu (`~/Documents`)
-- Zapisuje logi z wykonanych operacji
-
-Projekt został wykonany jako ćwiczenie z automatyzacji w Linuxie i jest przygotowany w formie gotowej do uruchomienia aplikacji CLI.
+<h1 align="center">🛠️ Auto Maintenance Script</h1>
+<p align="center">
+  <b>Automatyzacja podstawowych zadań administracyjnych w Ubuntu</b> 🚀<br>
+  <i>Projekt w Bashu z backupem, logowaniem i czyszczeniem systemu</i>
+</p>
 
 ---
+
+## ✨ Funkcje
+✅ Aktualizacja pakietów systemowych  
+✅ Usuwanie zbędnych pakietów i czyszczenie pamięci podręcznej  
+✅ Tworzenie kopii zapasowej wybranego katalogu (`~/Documents`)  
+✅ Zapisywanie logów z wykonanych operacji  
+
+---
+
+## 📂 Struktura projektu
+auto_maintenance/
+├── auto_maintenance.sh # Główny skrypt automatyzacji
+├── backup/ # Folder z kopiami zapasowymi
+├── logs/ # Folder z logami
+├── .gitignore # Ignorowanie backupów i logów w repo
+└── README.md # Opis projektu
+
+## 🚀 Jak uruchomić
+
+1️⃣ **Pobierz repozytorium** lub skopiuj pliki projektu.  
+2️⃣ **Nadaj uprawnienia** do uruchomienia skryptu:
+```bash
+chmod +x auto_maintenance.sh
+
+3️⃣ Uruchom skrypt:
+./auto_maintenance.sh
+
+🔍 Jak działa skrypt
+
+📦 Aktualizacja systemu – sudo apt update && sudo apt upgrade -y
+🧹 Czyszczenie systemu – sudo apt autoremove -y && sudo apt autoclean
+📂 Backup – spakowanie ~/Documents do backup/ w formacie .tar.gz
+📝 Logi – zapis przebiegu działań w logs/activity.log
+
+---
+
+🧰 Technologie i narzędzia:
+🐧 Linux (Ubuntu 22.04)
+💻 Bash
+📦 APT
+📜 tar
+
+---
+
+🚧 Możliwe rozszerzenia:
+⏱️ Automatyczne uruchamianie przez cron
+📧 Wysyłanie logów na e-mail
+📁 Backup wielu katalogów
+⚙️ Parametry w wierszu poleceń (np. wybór katalogu do backupu)
+
+<p align="center"> ✍️ Autor: <b>Kaes04</b> 📅 Rok: 2025 </p> ```
